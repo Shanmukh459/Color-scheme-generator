@@ -12,10 +12,24 @@ function getColorScheme() {
             for(let color of data.colors) {
                 colorsArr.push(color.hex.value)
             }
+            renderColors()
         })
-    renderColors()
+    
 }
 
 function renderColors() {
-    
+    document.getElementById("colors-container").innerHTML = getColorSchemeHtml()
+}
+
+function getColorSchemeHtml() {
+    let colorsHtml = colorsArr.map(color => {
+        return `
+            <div class="color-inner">
+                <div class="color" style="{backgroundColor: ${color};}"></div>
+                <p class="color-hex">${color}</p>
+            </div>
+        `
+    }).join('')
+    console.log(colorsHtml)
+    return colorsHtml
 }
