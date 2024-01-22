@@ -4,7 +4,6 @@ document.getElementById("get-color-btn").addEventListener("click", getColorSchem
 let colorsArr = []
 
 function getColorScheme() {
-    clearColorContainer()
     const colorPickerVal = document.getElementById("color-picker").value
     const mode = document.getElementById("color-mode").value.toLowerCase()
     console.log(mode)
@@ -15,17 +14,18 @@ function getColorScheme() {
             for(let color of data.colors) {
                 colorsArr.push(color.hex.value)
             }
+            clearColorContainer()
             renderColors()
-        })
-    
+        })  
 }
 
 function clearColorContainer() {
-    colorsContainer.innerHTML = ""
+    colorsContainer.innerHTML = " "
 }
 
 function renderColors() {
     colorsContainer.innerHTML = getColorSchemeHtml()
+    colorsContainer.style.display = "flex"
     for(let color of colorsArr) {
         document.getElementById(color).style.background = color
     }
