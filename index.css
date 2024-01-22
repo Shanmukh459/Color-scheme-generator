@@ -5,16 +5,19 @@ body {
     color: #ffffff;
 }
 
-main {
-    display: grid;
+.app-container {
+    background-color: #1F2937;
+    max-width: 450px;
+    margin: auto;
+}
+
+header {
     display: flex;
     gap: 2rem;
     align-items: center;
     justify-content: center;
-    padding: 1.25rem 1rem;
-    background-color: #1F2937;
-    max-width: 450px;
-    margin: auto;
+    padding: 1.25rem 1rem; 
+
 }
 
 input {
@@ -37,4 +40,27 @@ button {
     padding: 0.7rem;
     background-color: #3D4B60;
     border: none;
+}
+
+.colors-container {
+    display: flex;
+    padding: 1rem 0;
+}
+
+.color-inner {
+    width: 20%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.color-inner p,
+.color-inner div {
+    margin: 0;
+    padding: 0;
+}
+
+.color {
+    height: 200px;
 }

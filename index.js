@@ -1,7 +1,10 @@
+const colorsContainer = document.getElementById("colors-container")
+
 document.getElementById("get-color-btn").addEventListener("click", getColorScheme)
 let colorsArr = []
 
 function getColorScheme() {
+    clearColorContainer()
     const colorPickerVal = document.getElementById("color-picker").value
     const mode = document.getElementById("color-mode").value.toLowerCase()
     console.log(mode)
@@ -17,15 +20,22 @@ function getColorScheme() {
     
 }
 
+function clearColorContainer() {
+    colorsContainer.innerHTML = ""
+}
+
 function renderColors() {
-    document.getElementById("colors-container").innerHTML = getColorSchemeHtml()
+    colorsContainer.innerHTML = getColorSchemeHtml()
+    for(let color of colorsArr) {
+        document.getElementById(color).style.background = color
+    }
 }
 
 function getColorSchemeHtml() {
     let colorsHtml = colorsArr.map(color => {
         return `
             <div class="color-inner">
-                <div class="color" style="{backgroundColor: ${color};}"></div>
+                <div class="color" id="${color}"></div>
                 <p class="color-hex">${color}</p>
             </div>
         `
