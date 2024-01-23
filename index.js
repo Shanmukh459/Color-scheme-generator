@@ -1,6 +1,13 @@
 const colorsContainer = document.getElementById("colors-container")
 
 document.getElementById("get-color-btn").addEventListener("click", getColorScheme)
+
+document.addEventListener('click', function(e) {
+    if(e.target.dataset.color){
+        copyToClipBoard(e.target.dataset.color)
+    }
+})
+
 let colorsArr = []
 
 function getColorScheme() {
@@ -11,10 +18,10 @@ function getColorScheme() {
     fetch(`https://www.thecolorapi.com/scheme?${queryStr}`)
         .then(res => res.json())
         .then(data => {
+            colorsArr = []
             for(let color of data.colors) {
                 colorsArr.push(color.hex.value)
             }
-            clearColorContainer()
             renderColors()
         })  
 }
@@ -24,6 +31,7 @@ function clearColorContainer() {
 }
 
 function renderColors() {
+    clearColorContainer()
     colorsContainer.innerHTML = getColorSchemeHtml()
     colorsContainer.style.display = "flex"
     for(let color of colorsArr) {
@@ -32,14 +40,20 @@ function renderColors() {
 }
 
 function getColorSchemeHtml() {
-    let colorsHtml = colorsArr.map(color => {
+    let colorsHtml = ''
+    colorsHtml = colorsArr.map(color => {
         return `
             <div class="color-inner">
                 <div class="color" id="${color}"></div>
-                <p class="color-hex">${color}</p>
+                <p class="color-hex" data-color="${color}">${color}</p>
             </div>
         `
     }).join('')
     console.log(colorsHtml)
     return colorsHtml
+}
+
+function copyToClipBoard(colorToCopy) {
+    navigator.clipboard.writeText(colorToCopy)
+    alert("Copied the text: " + colorToCopy);
 }
