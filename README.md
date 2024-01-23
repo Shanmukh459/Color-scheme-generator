@@ -29,10 +29,10 @@
 
 #### _Dropdown of modes_
 
-- ![image](https://github.com/Shanmukh459/Color-scheme-generator/assets/52078988/0d6ae7f1-f482-467c-995b-27be45fbcc79)
+![image](https://github.com/Shanmukh459/Color-scheme-generator/assets/52078988/0d6ae7f1-f482-467c-995b-27be45fbcc79)
 
 #### _Upon request submission_
 
-- ![image](https://github.com/Shanmukh459/Color-scheme-generator/assets/52078988/fd8df4a6-07e6-4cfb-8909-8d9922894e46)
+![image](https://github.com/Shanmukh459/Color-scheme-generator/assets/52078988/fd8df4a6-07e6-4cfb-8909-8d9922894e46)
 
 Happy Coding!
